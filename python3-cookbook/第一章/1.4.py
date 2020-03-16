@@ -58,7 +58,7 @@ if __name__ == "__main__":
         >>> import heapq
         >>> heapq.heapify(list)
         >>> list
-[-5, 3, 7, 10, 5]
+        [-5, 3, 7, 10, 5]
 3.友情提示：
     - 当要查找的元素个数相对比较小的时候，函数 nlargest() 和 nsmallest() 是很合适的
     - 如果想查找唯一的最小或最大(N=1)的元素的话，那么使用 min() 和 max() 函数会更快些
