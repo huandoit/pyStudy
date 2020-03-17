@@ -17,6 +17,7 @@ d['a'].append(2)
 d['a'].append(3)
 for key in d.keys():
     print(key,  d[key])
+    # a [1, 2, 3]
 
 d = defaultdict(set)
 d['a'].add(1)
@@ -24,12 +25,14 @@ d['a'].add(2)
 d['b'].add(4)
 for key in d.keys():
     print(key,  d[key])
+    # a {1, 2} b {4}
 
 pairs = [('a',1), ('a',2), ('a',3), ('b',1)]
 d = defaultdict(list)
 for key, value in pairs:
     d[key].append(value)
 print(d)
+# defaultdict(<class 'list'>, {'a': [1, 2, 3], 'b': [1]})
 
 '''
 defaultdict对象，返回一个新的类似字典的对象：
