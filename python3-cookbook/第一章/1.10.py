@@ -8,7 +8,7 @@
 @description: 删除序列相同元素并保持顺序
 """
 
-# 针对hashable类型，利用集合和生成器解决
+# 针对数值为hashable类型，利用集合和生成器解决
 def dedupe(items):
     seen = set()
     for item in items:
@@ -34,5 +34,14 @@ if __name__ == "__main__":
 
 '''
 1.yeild 与 return 的区别：
-    - 
+    - yield返回执行结果后不中断程序继续执行
+    - return在返回执行结果后中断程序执行
+2.hashable类型
+    - 能通过哈希值来确定唯一对象的，称为可哈希对象
+    - 数值、字符串、元组和函数等是hashable
+    - 列表、字典和集合是unhashable
+    - 可哈希对象可作为字典的键，或集合的成员
+3.lambda的用法
+    - lambda：匿名函数，可使用单行定义一个函数
+    - 语法：(lambda 参数:函数体)
 '''
