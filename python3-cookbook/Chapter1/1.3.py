@@ -10,6 +10,7 @@
 
 from collections import deque
 
+
 # 读取文本内容并返回匹配行前N行
 def search(lines, pattern, history=5):
     pervious_lines = deque(maxlen=history)
@@ -17,6 +18,7 @@ def search(lines, pattern, history=5):
         if pattern in line:
             yield line, pervious_lines
         pervious_lines.append(line)
+
 
 if __name__ == '__main__':
     with open(r'./1.2.md') as f:
