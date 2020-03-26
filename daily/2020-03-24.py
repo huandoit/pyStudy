@@ -59,4 +59,11 @@ if __name__ == '__main__':
 4.match()
     - 参考2.4.md
 5.format格式化函数
+    - 可将字符串内的内容替换成format()中的内容
+    - "{0} {1}".format("hello", "world")
+    - print("网站名：{name}, 地址 {url}".format(name="name", url="www.baidu.com"))
+6.正则表达式
+    - https://regex101.com/
+7.enumerate()枚举
+    - 参考2020-03-15.md
 """
