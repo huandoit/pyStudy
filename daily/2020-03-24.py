@@ -18,10 +18,12 @@ seed_url = "https://www.bilibili.com/v/dance"
 
 regex = r"\<a href=\"\/\/www\.bilibili\.com\/video\/[a-zA-Z0-9]+\""
 
+
 def fetch_seed_context():
     r = requests.get(seed_url)
     with open("index.html", "w", encoding="utf-8") as index_obj:
         index_obj.write(r.text)
+
 
 def extract_herf():
     with open("index.html", "r", encoding="utf-8") as index_obj:
@@ -34,7 +36,6 @@ def extract_herf():
 
             next_r = requests.get(target_url)
             print(next_r)
-
 
 
 if __name__ == '__main__':
