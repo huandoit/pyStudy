@@ -101,7 +101,7 @@ def md5_video():
         video_title = re.findall(title_regex, content)
 
         md5 = hashlib.md5()
-        md5.update(str(video_title[0]).encode(encoding='utf-8'))
+        md5.update(video_title[0].encode(encoding='utf-8'))
         md5_title = md5.hexdigest()
 
         print(f'正在下载视频：{video_title[0]}')
@@ -117,3 +117,18 @@ if __name__ == '__main__':
     # download_pearvideo()
     # download_authorvideo()
     md5_video()
+
+"""
+1.os
+    - 可以进行文件路径相关的操作
+    - os.listdir(path)：返回一个列表，该列表包含了path中所有文件与目录的名称
+    - os.mkdir(path)：创建一个名为path的目录
+2.f-string格式化字符串
+    - 使用方法和str.format()类似，但是要更简洁
+    - 在字符串中使用{}将变量括起来，如 f"{md5_title}.mp4"
+3.python md5加密
+    - 使用库hashlib
+    - m = hashlib.md5()：创建md5对象
+    - m.update(str)：更新hash对象，但是只能接受字节对象，因此对于字符串可以使用encode方法进行编码后传入
+    - m.hexdigest()：16进制形式返回加密内容
+"""
