@@ -87,9 +87,11 @@ def down_top10_techvideo():
                 break
 
             # 访问videos中的视频地址，保存对应视频文件和相关描述信息，并将已保存过的视频链接从videos中去除
-            for video in videos:
+            videos.reverse()
+            while videos:
+                video = videos.pop()
                 print(video)
-                video_content = requests.get(_, headers=headers).text
+                video_content = requests.get(video, headers=headers).text
                 mp4_regex = r'ldUrl="",srcUrl="(.*?)",vdoUrl='
                 video_url = re.findall(mp4_regex, video_content)
                 title_regex = r'<h1 class="video-tt">(.*?)</h1>'
@@ -103,11 +105,10 @@ def down_top10_techvideo():
                 urllib.request.urlretrieve(video_url[0], os.path.join(storage, f"{md5_title}.mp4"))
 
                 sum_regex = r'<div class="summary">(.*?)</div>'
-                video_sum = re.findall(sum_regex, content)
+                video_sum = re.findall(sum_regex, video_content)
                 with open(f"videos/{md5_title}.txt", 'w', encoding='utf-8') as f:
                     f.write(video_title[0])
                     f.write(video_sum[0])
-                videos.remove(video)
 
 
 if __name__ == '__main__':
