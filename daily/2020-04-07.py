@@ -37,7 +37,8 @@ def down_top10_techvideo():
     author_url = []
     for _ in author_ids:
         _url = prefix_url + _
-        author_url.append(_url)
+        if _url not in author_url:
+            author_url.append(_url)
 
     videos = []
     driver = webdriver.Chrome()
