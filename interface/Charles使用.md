@@ -1,3 +1,6 @@
+# Charles功能介绍和使用教程
+https://juejin.im/post/5b8350b96fb9a019d9246c4c
+
 # Charles简介
 > Charles 是在 PC 端常用的网络封包截取工具，在做移动开发时，我们为了调试与服务器端的网络通讯协议，常常需要截取网络封包来分析。
 > 除了在做移动开发中调试端口外，Charles 也可以用于分析第三方应用的通讯协议。配合 Charles 的 SSL 功能，Charles 还可以分析 Https 协议。
