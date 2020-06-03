@@ -10,17 +10,17 @@
 """
 
 import requests
+from interface.src.common.data import ReadData
 
 
-url = "http://172.18.4.206/as/user/login"
-
+# url = "http://172.18.4.206/as/user/login"
+data = ReadData("test_login_data.xlsx")
+url = data.get_url()
 
 def test_login_normal():
     data = {
-        "token_type":"COOKIE",
-        "cookie_type":"WAL",
-        "userName":"root",
-        "password":"111111"
+        "userName": "root",
+        "password": "111111"
     }
     req = requests.post(url=url, data=data)
     reslut = req.status_code
