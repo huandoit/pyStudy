@@ -1,0 +1,14 @@
+runtime:
+  log_level: debug
+  report_dir: report
+  log_dir: log
+  timeout: 10
+server:
+  test: http://127.0.0.1:5000
+  stage: http://127.0.0.1:6000
+  prod: http://127.0.0.1:7000
+array:
+  - value1
+  - value2
+  - value3
+...
