@@ -10,6 +10,7 @@
 """
 
 import os
+import json
 import xlrd
 
 
@@ -22,16 +23,35 @@ class ReadData(object):
         self.data_excel = data_open.sheet_by_index(0)
 
     def get_url(self):
+        '''
+        获取请求的url
+        :return:
+        '''
         url = self.data_excel.cell(1, 3).value
         return url
 
     def get_method(self, case_name):
+        '''
+        获取请求类型
+        :param case_name:
+        :return:
+        '''
         return self.get_case(case_name=case_name)[4]
 
     def get_data(self, case_name):
-        return self.get_case(case_name)[6]
+        '''
+        获取请求数据，转化为字典格式
+        :param case_name:
+        :return:
+        '''
+        return json.loads(self.get_case(case_name)[6])
 
     def get_expect(self, case_name):
+        '''
+        期望结果
+        :param case_name:
+        :return:
+        '''
         return self.get_case(case_name)[7]
 
     def get_case(self, case_name):

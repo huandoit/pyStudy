@@ -17,11 +17,19 @@ from interface.src.common.data import ReadData
 data = ReadData("test_login_data.xlsx")
 url = data.get_url()
 
+
 def test_login_normal():
-    data = {
-        "userName": "root",
-        "password": "111111"
-    }
-    req = requests.post(url=url, data=data)
+    case_name = "test_login_normal"
+    case_data = data.get_data(case_name)
+    req = requests.get(url=url, params=case_data)
     reslut = req.status_code
     assert reslut == 200
+
+
+def test_login_wrong_username():
+    case_name = "test_login_wrong_username"
+    case_data = data.get_data(case_name)
+    case_expect = data.get_expect(case_name)
+    req = requests.get(url=url, params=case_data)
+    reslut = req.text
+    assert reslut == case_expect
