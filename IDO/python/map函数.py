@@ -11,7 +11,7 @@
 
 
 '''
-map(function, iterable, ...)：
+map(function, iterable, ...)：根据提供的函数对指定序列做映射
     - function 函数
     - iterable 可迭代对象
     - 返回结果：一个迭代器
@@ -31,3 +31,5 @@ print(l)
 # 匿名函数
 for i in map(lambda x: x ** 2, [1, 2, 3, 4, 5]):
     print(i)
+
+print(list(map(f, [1, 2, 3, 4, 5])))
