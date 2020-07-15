@@ -16,7 +16,7 @@
 - 集合set
 - 字典dictionary
 
-# list
+# List
 list是一个有序且可更改的集合，允许有重复的成员
 
 ## 创建列表
@@ -54,13 +54,29 @@ test([1,2,3,4,5,6])
 for循环遍历列表时，是按索引遍历，所以在上面第二个循环时第一次循环索引0输出1后1被弹出，2的索引变为了0，第二次循环索引1时输出的是3
 
 ## 内置方法
-- `len(list)`: 返回列表长度
 - `list.append(i)`: 在列表末尾处添加新元素i
+- `list.count(i)`: 返回元素i在列表中出现的次数
 - `list.insert(index, i)`: 在指定索引处添加新元素
 - `list.remove(i)`: 删除指定元素i
 - `list.pop(index)`: 删除指定索引处的元素
 - `list.clear()`: 清空列表
-- `list.reverse()`: 反转列表的顺序
-- `list.sort()`: 对列表进行排序
+- `list.reverse()`: 反转list的顺序，不会返回新的列表
+- `list.sort()`: 对list进行排序，不会返回新的列表
+- `list1.extend(list2)`: 将list2中的元素添加到list1末尾中
 
 ## 其他操作
+- 复制列表
+    - `list2 = list1` 不是复制操作，list2只是list1的引用，list1和list2在地址中指向的是同一个列表，list1上的变动会同步到list2上
+    - `list2 = list1.copy()` 复制
+- 将其他类型变量转换成list
+    - `list(object)` object可以是元组、集合和字典等
+- 将两个列表合并
+    - `list1 + list2`
+    - `list1.extend(list2)`
+- 统计列表的长度
+    - `len(list)`
+- 返回列表元素最大\最小值
+    - `max(list)`
+    - `min(list)`
+
+# Tuple
