@@ -24,35 +24,32 @@
 ]
 '''
 
+'''
+思路一：
+numRows=0是特殊情况，进行处理。本质上n行的第i个元素的值等于n-1行第i个元素和i-1个元素的和
+'''
 
 def generate(numRows):
-    pascal = [[1]]
+    pascal = []
+    if numRows == 0:
+        return pascal
 
-    if numRows == 1:
-        return pascal
-    elif numRows == 2:
-        pascal = [[1], [1, 1]]
-        return pascal
-    else:
-        pascal = [[1], [1, 1]]
-        n = pascal[1]
+    n_row = []
+    i = 0
+    for row in range(1, numRows + 1):
+        while i < row:
+            if i == 0 or i == row - 1:
+                n_row.append(1)
+            else:
+                value = n[i - 1] + n[i]
+                n_row.append(value)
+            i += 1
+        pascal.append(n_row)
         n_row = []
+        n = pascal[row - 1]
         i = 0
-        for row in range(3, numRows + 1):
-            while i < row:
-                if i == 0:
-                    n_row.append(1)
-                elif i == row - 1:
-                    n_row.append(1)
-                else:
-                    value = n[i - 1] + n[i]
-                    n_row.append(value)
-                i += 1
-            pascal.append(n_row)
-            n = pascal[row - 1]
-            i = 0
-        return pascal
+    return pascal
 
 
 if __name__ == '__main__':
-    generate(1)
+    print(generate(4))
