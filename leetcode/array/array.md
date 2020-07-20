@@ -79,4 +79,51 @@ for循环遍历列表时，是按索引遍历，所以在上面第二个循环�
     - `max(list)`
     - `min(list)`
 
-# Tuple
+# Dictionary
+dictionary是一个无序、可变和有索引的集合，没有重复的成员
+
+## 创建字典
+- 字典中的数据以键值对的形式存在
+- 键 是不能重复且不可变的，如字符串、数字和元组等
+- 值 可以重复，可修改，可以是任意类型
+```python
+dict = {
+    "key1": "value1",
+    "key2": "value"
+}
+```
+
+## 字典操作
+- 访问字典中的值
+    - `dict['key']`
+    - `dict.get(key)`
+- 修改字典，包括增加新的键值对和修改键的值
+    - 修改键的值，直接给键赋值即可 `dict['key'] = new_value`
+    - 增加新的键值对，同上 `dict['new_key'] = value`
+- 删除字典元素
+    - 清空字典 `dict.clear()`
+    - 删除字典中的某个键值对 `del dict['key']`
+    - 删除字典 `del dict`
+
+## 内置方法
+- `dict.clear()` 删除字段中的所有元素
+- `dict.copy()` 返回字典的副本，简称复制
+- `dict.fromkeys(keys, values)` keys和values可以都是列表，然后将keys中的元素提取做键，values中元素提取做值，排列组合生成新的字典
+- `dict.get(key, default=None)` 返回key的值，如果key不存在则返回默认值
+- `dict.has_key(key)` 如果键在dict里返回true，否则返回false
+- `dict.items()` 将键值对保存为(键,值)，然后以列表的形式返回，如[(key1,value1), (key2,value2)]
+- `dict.setdefault(key, default=None)` 获取在dict中key对应的值，如果key不存在则将key添加到dict中，值为设置的默认值，然后返回默认值
+- `dict.update(dict2)` 将dict2中的键值对添加到dict1中
+- `dict.values()` 以列表的形式返回字典中的所有值
+- `dict.keys()` 以列表的形式返回字典中的所有键
+- `dict.pop(key)` 删除指定键值对
+- `dict.popitem()` 删除最后插入的键值对
+
+## 其他操作
+- 计算字典中元素的个数
+    - `len(dict)`
+- 将其他类型元素转换成字典类型
+    - `dict(key=value, key1=value)`
+- 遍历字典
+    - `for x in dict` 遍历键
+    - `for x, y in dict.items()` 遍历键和值
