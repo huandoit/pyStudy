@@ -19,20 +19,20 @@
 '''
 
 '''
-
+思路一：
+哈希表，依次遍历数组，将已遍历的数组存入字典中，遍历下一个数时与字典中的键进行对比，存在表示有重复项，不存在则是没有
 '''
-
-
 def containsDuplicate(nums):
-    if len(nums) == 1 or nums == []:
+    if len(nums) < 2:
         return False
-    for index1 in range(len(nums)):
-        bak = nums.copy()
-        bak.pop(index1)
-        if nums[index1] in bak:
+    dict = {}
+    for i in nums:
+        if i in dict:
             return True
+        else:
+            dict[i] = 1
     return False
 
 
 if __name__ == '__main__':
-    print(containsDuplicate([1,2,3,4]))
+    print(containsDuplicate([1, 2, 3, 4]))
